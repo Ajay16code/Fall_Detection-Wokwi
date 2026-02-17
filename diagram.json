@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -19.2, "left": -71.96, "attrs": {} },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 128.62, "left": 127.12, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -160.8,
+      "left": -171,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -198.17, "left": -32, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "imu1:VCC", "esp:3V3", "red", [ "v-86.4", "h-95.92", "v-76.8" ] ],
+    [ "imu1:GND", "esp:GND.2", "black", [ "v-86.4", "h-95.92", "h-67.2" ] ],
+    [ "imu1:SDA", "esp:21", "magenta", [ "v-38.4", "h-143.92" ] ],
+    [ "imu1:SCL", "esp:22", "#8f4814", [ "v-67.2", "h-153.52" ] ],
+    [ "bz1:1", "esp:5", "cyan", [ "v105.6", "h163.2" ] ],
+    [ "bz1:2", "esp:GND.2", "green", [ "v19.2", "h153.2" ] ],
+    [ "lcd1:VSS", "esp:GND.1", "green", [ "v201.6", "h-67.2" ] ],
+    [ "lcd1:VDD", "esp:5V", "green", [ "v249.6", "h-76.7" ] ],
+    [ "lcd1:V0", "esp:GND.2", "green", [ "v76.8", "h9.3" ] ],
+    [ "lcd1:RS", "esp:14", "green", [ "v182.4", "h-95.7" ] ],
+    [ "lcd1:RW", "esp:GND.1", "green", [ "v201.6", "h-105.7" ] ],
+    [ "lcd1:E", "esp:27", "green", [ "v172.8", "h-115.2" ] ],
+    [ "lcd1:D4", "esp:26", "green", [ "v163.2", "h-163.2" ] ],
+    [ "lcd1:D5", "esp:25", "green", [ "v153.6", "h-172.7" ] ],
+    [ "lcd1:D6", "esp:33", "green", [ "v144", "h-182.2" ] ],
+    [ "lcd1:D7", "esp:32", "green", [ "v134.4", "h-191.7" ] ],
+    [ "lcd1:A", "esp:5V", "green", [ "v249.6", "h-201.7" ] ],
+    [ "lcd1:K", "esp:GND.1", "green", [ "v201.6", "h-211.2" ] ]
+  ],
+  "dependencies": {}
+}
